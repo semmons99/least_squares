@@ -1,0 +1,597 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=windows-1252" />
+<title>Module: Math</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (M)</a> &raquo; 
+    
+    
+    <span class="title">Math</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Class List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: Math 
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/least_squares.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+
+  
+    <h2>Class Method Summary</h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#least_squares-class_method" title="least_squares (class method)">+ (Proc) <strong>least_squares</strong>(xs, ys) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Takes two arrays of numbers and returns the Least Squares Regression Line
+as a Proc.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#mean-class_method" title="mean (class method)">+ (Float) <strong>mean</strong>(xs) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Takes an array of numbers and returns the Mean.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pearson-class_method" title="pearson (class method)">+ (Float) <strong>pearson</strong>(xs, ys) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Takes two arrays of numbers and returns the Pearson&#8217;s Correlation
+Coefficient.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#stdev-class_method" title="stdev (class method)">+ (Float) <strong>stdev</strong>(xs) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Takes an array of numbers and returns the Standard Deviation.
+</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="least_squares-class_method">
+  
+    + (<tt>Proc</tt>) <strong>least_squares</strong>(xs, ys) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Takes two arrays of numbers and returns the Least Squares Regression Line
+as a Proc.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'></div></h4>
+      <pre class="example code"><span class='id xs'>xs</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='comma'>,</span> <span class='int'>4</span><span class='comma'>,</span> <span class='int'>5</span><span class='comma'>,</span> <span class='int'>6</span><span class='comma'>,</span> <span class='int'>7</span><span class='comma'>,</span> <span class='int'>8</span><span class='comma'>,</span> <span class='int'>9</span><span class='comma'>,</span> <span class='int'>10</span><span class='rbracket'>]</span>
+<span class='id ys'>ys</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='int'>9</span><span class='comma'>,</span> <span class='int'>1</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>5</span><span class='comma'>,</span> <span class='int'>4</span><span class='comma'>,</span> <span class='int'>7</span><span class='comma'>,</span> <span class='int'>7</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>9</span><span class='comma'>,</span> <span class='int'>3</span><span class='rbracket'>]</span>
+<span class='id ls'>ls</span> <span class='op'>=</span> <span class='const'>Math</span><span class='period'>.</span><span class='id least_squares'>least_squares</span><span class='lparen'>(</span><span class='id xs'>xs</span><span class='comma'>,</span><span class='id ys'>ys</span><span class='rparen'>)</span>
+<span class='lparen'>(</span><span class='int'>1</span><span class='op'>..</span><span class='int'>10</span><span class='rparen'>)</span><span class='period'>.</span><span class='id map'>map</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id i'>i</span><span class='op'>|</span> <span class='id ls'>ls</span><span class='period'>.</span><span class='id call'>call</span><span class='lparen'>(</span><span class='id i'>i</span><span class='rparen'>)</span><span class='rbrace'>}</span> <span class='comment'>#=&gt; [4.2, 4.2667, 4.333, 4.4, 4.4667, 4.5333, 4.6, 4.667, 4.7333, 4.8]</span></pre>
+    
+  </div>
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>Array&lt;Numeric&gt;</tt>)</span>
+      
+      
+        <span class='name'>xs</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+Array of numbers
+</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt>Array&lt;Numeric&gt;</tt>)</span>
+      
+      
+        <span class='name'>ys</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+Array of numbers
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>Proc</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+Least Squares Regression Line
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+64
+65
+66
+67
+68</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/least_squares.rb', line 64</span>
+
+<span class='kw'>def</span> <span class='const'>Math</span><span class='period'>.</span><span class='id least_squares'>least_squares</span><span class='lparen'>(</span><span class='id xs'>xs</span><span class='comma'>,</span> <span class='id ys'>ys</span><span class='rparen'>)</span>
+  <span class='id b'>b</span> <span class='op'>=</span> <span class='const'>Math</span><span class='period'>.</span><span class='id pearson'>pearson</span><span class='lparen'>(</span><span class='id xs'>xs</span><span class='comma'>,</span><span class='id ys'>ys</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='const'>Math</span><span class='period'>.</span><span class='id stdev'>stdev</span><span class='lparen'>(</span><span class='id ys'>ys</span><span class='rparen'>)</span> <span class='op'>/</span> <span class='const'>Math</span><span class='period'>.</span><span class='id stdev'>stdev</span><span class='lparen'>(</span><span class='id xs'>xs</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id a'>a</span> <span class='op'>=</span> <span class='const'>Math</span><span class='period'>.</span><span class='id mean'>mean</span><span class='lparen'>(</span><span class='id ys'>ys</span><span class='rparen'>)</span> <span class='op'>-</span> <span class='lparen'>(</span><span class='id b'>b</span> <span class='op'>*</span> <span class='const'>Math</span><span class='period'>.</span><span class='id mean'>mean</span><span class='lparen'>(</span><span class='id xs'>xs</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id lambda'>lambda</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id x'>x</span><span class='op'>|</span> <span class='id a'>a</span> <span class='op'>+</span> <span class='lparen'>(</span><span class='id b'>b</span> <span class='op'>*</span> <span class='id x'>x</span><span class='rparen'>)</span><span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="mean-class_method">
+  
+    + (<tt>Float</tt>) <strong>mean</strong>(xs) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Takes an array of numbers and returns the Mean.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'></div></h4>
+      <pre class="example code"><span class='id xs'>xs</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='comma'>,</span> <span class='int'>4</span><span class='comma'>,</span> <span class='int'>5</span><span class='comma'>,</span> <span class='int'>6</span><span class='comma'>,</span> <span class='int'>7</span><span class='comma'>,</span> <span class='int'>8</span><span class='comma'>,</span> <span class='int'>9</span><span class='comma'>,</span> <span class='int'>10</span><span class='rbracket'>]</span>
+<span class='const'>Math</span><span class='period'>.</span><span class='id mean'>mean</span><span class='lparen'>(</span><span class='id xs'>xs</span><span class='rparen'>)</span> <span class='comment'>#=&gt; 5.5</span></pre>
+    
+  </div>
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>Array&lt;Numeric&gt;</tt>)</span>
+      
+      
+        <span class='name'>xs</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+Array of numbers
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+Mean
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+11
+12
+13</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/least_squares.rb', line 11</span>
+
+<span class='kw'>def</span> <span class='const'>Math</span><span class='period'>.</span><span class='id mean'>mean</span><span class='lparen'>(</span><span class='id xs'>xs</span><span class='rparen'>)</span>
+  <span class='id xs'>xs</span><span class='period'>.</span><span class='id inject'>inject</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id s'>s</span><span class='comma'>,</span><span class='id n'>n</span><span class='op'>|</span> <span class='id s'>s</span><span class='op'>+</span><span class='id n'>n</span><span class='rbrace'>}</span> <span class='op'>/</span> <span class='id xs'>xs</span><span class='period'>.</span><span class='id size'>size</span><span class='period'>.</span><span class='id to_f'>to_f</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="pearson-class_method">
+  
+    + (<tt>Float</tt>) <strong>pearson</strong>(xs, ys) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Takes two arrays of numbers and returns the Pearson&#8217;s Correlation
+Coefficient.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'></div></h4>
+      <pre class="example code"><span class='id xs'>xs</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='comma'>,</span> <span class='int'>4</span><span class='comma'>,</span> <span class='int'>5</span><span class='comma'>,</span> <span class='int'>6</span><span class='comma'>,</span> <span class='int'>7</span><span class='comma'>,</span> <span class='int'>8</span><span class='comma'>,</span> <span class='int'>9</span><span class='comma'>,</span> <span class='int'>10</span><span class='rbracket'>]</span>
+<span class='id ys'>ys</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='int'>9</span><span class='comma'>,</span> <span class='int'>1</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>5</span><span class='comma'>,</span> <span class='int'>4</span><span class='comma'>,</span> <span class='int'>7</span><span class='comma'>,</span> <span class='int'>7</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>9</span><span class='comma'>,</span> <span class='int'>3</span><span class='rbracket'>]</span>
+<span class='const'>Math</span><span class='period'>.</span><span class='id pearson'>pearson</span><span class='lparen'>(</span><span class='id xs'>xs</span><span class='comma'>,</span><span class='id ys'>ys</span><span class='rparen'>)</span> <span class='comment'>#=&gt; 0.0581327470763432</span></pre>
+    
+  </div>
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>Array&lt;Numeric&gt;</tt>)</span>
+      
+      
+        <span class='name'>xs</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+Array of numbers
+</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt>Array&lt;numeric&gt;</tt>)</span>
+      
+      
+        <span class='name'>ys</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+Array of numbers
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+Pearson&#8217;s Correlation Coefficient
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+41
+42
+43
+44
+45
+46
+47
+48
+49</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/least_squares.rb', line 41</span>
+
+<span class='kw'>def</span> <span class='const'>Math</span><span class='period'>.</span><span class='id pearson'>pearson</span><span class='lparen'>(</span><span class='id xs'>xs</span><span class='comma'>,</span> <span class='id ys'>ys</span><span class='rparen'>)</span>
+  <span class='id numerator'>numerator</span> <span class='op'>=</span> <span class='int'>0</span>
+  <span class='id xs_mean'>xs_mean</span> <span class='op'>=</span> <span class='const'>Math</span><span class='period'>.</span><span class='id mean'>mean</span><span class='lparen'>(</span><span class='id xs'>xs</span><span class='rparen'>)</span>
+  <span class='id ys_mean'>ys_mean</span> <span class='op'>=</span> <span class='const'>Math</span><span class='period'>.</span><span class='id mean'>mean</span><span class='lparen'>(</span><span class='id ys'>ys</span><span class='rparen'>)</span>
+  <span class='lparen'>(</span><span class='int'>0</span><span class='op'>...</span><span class='id xs'>xs</span><span class='period'>.</span><span class='id size'>size</span><span class='rparen'>)</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id i'>i</span><span class='op'>|</span>
+    <span class='id numerator'>numerator</span> <span class='op'>+=</span> <span class='lparen'>(</span><span class='id xs'>xs</span><span class='lbracket'>[</span><span class='id i'>i</span><span class='rbracket'>]</span> <span class='op'>-</span> <span class='id xs_mean'>xs_mean</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='id ys'>ys</span><span class='lbracket'>[</span><span class='id i'>i</span><span class='rbracket'>]</span> <span class='op'>-</span> <span class='id ys_mean'>ys_mean</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='id numerator'>numerator</span> <span class='op'>/</span> <span class='lparen'>(</span><span class='const'>Math</span><span class='period'>.</span><span class='id sqrt'>sqrt</span><span class='lparen'>(</span><span class='id xs'>xs</span><span class='period'>.</span><span class='id inject'>inject</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id s'>s</span><span class='comma'>,</span><span class='id x'>x</span><span class='op'>|</span> <span class='id s'>s</span> <span class='op'>+</span> <span class='lparen'>(</span><span class='id x'>x</span> <span class='op'>-</span> <span class='id xs_mean'>xs_mean</span><span class='rparen'>)</span> <span class='op'>**</span> <span class='int'>2</span><span class='rbrace'>}</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='const'>Math</span><span class='period'>.</span><span class='id sqrt'>sqrt</span><span class='lparen'>(</span><span class='id ys'>ys</span><span class='period'>.</span><span class='id inject'>inject</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id s'>s</span><span class='comma'>,</span><span class='id y'>y</span><span class='op'>|</span> <span class='id s'>s</span> <span class='op'>+</span> <span class='lparen'>(</span><span class='id y'>y</span> <span class='op'>-</span> <span class='id ys_mean'>ys_mean</span><span class='rparen'>)</span> <span class='op'>**</span> <span class='int'>2</span><span class='rbrace'>}</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="stdev-class_method">
+  
+    + (<tt>Float</tt>) <strong>stdev</strong>(xs) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Takes an array of numbers and returns the Standard Deviation.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'></div></h4>
+      <pre class="example code"><span class='id xs'>xs</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='comma'>,</span> <span class='int'>4</span><span class='comma'>,</span> <span class='int'>5</span><span class='comma'>,</span> <span class='int'>6</span><span class='comma'>,</span> <span class='int'>7</span><span class='comma'>,</span> <span class='int'>8</span><span class='comma'>,</span> <span class='int'>9</span><span class='comma'>,</span> <span class='int'>10</span><span class='rbracket'>]</span>
+<span class='const'>Math</span><span class='period'>.</span><span class='id stdev'>stdev</span><span class='lparen'>(</span><span class='id xs'>xs</span><span class='rparen'>)</span> <span class='comment'>#=&gt; 3.02765035409749</span></pre>
+    
+  </div>
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>Array&lt;Numeric&gt;</tt>)</span>
+      
+      
+        <span class='name'>xs</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+Array of numbers
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+Standard Deviation
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+24
+25
+26
+27</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/least_squares.rb', line 24</span>
+
+<span class='kw'>def</span> <span class='const'>Math</span><span class='period'>.</span><span class='id stdev'>stdev</span><span class='lparen'>(</span><span class='id xs'>xs</span><span class='rparen'>)</span>
+  <span class='id mean'>mean</span> <span class='op'>=</span> <span class='const'>Math</span><span class='period'>.</span><span class='id mean'>mean</span><span class='lparen'>(</span><span class='id xs'>xs</span><span class='rparen'>)</span>
+  <span class='const'>Math</span><span class='period'>.</span><span class='id sqrt'>sqrt</span><span class='lparen'>(</span><span class='lparen'>(</span><span class='int'>1</span><span class='op'>/</span><span class='lparen'>(</span><span class='id xs'>xs</span><span class='period'>.</span><span class='id size'>size</span><span class='period'>.</span><span class='id to_f'>to_f</span> <span class='op'>-</span> <span class='int'>1</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='id xs'>xs</span><span class='period'>.</span><span class='id inject'>inject</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id s'>s</span><span class='comma'>,</span><span class='id n'>n</span><span class='op'>|</span> <span class='id s'>s</span> <span class='op'>+</span> <span class='lparen'>(</span><span class='id n'>n</span> <span class='op'>-</span> <span class='id mean'>mean</span><span class='rparen'>)</span><span class='op'>**</span><span class='int'>2</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Wed May  5 10:12:47 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
+  0.5.4 (ruby-1.9.1).
+</div>
+
+  </body>
+</html>
