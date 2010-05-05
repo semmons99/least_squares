@@ -2,7 +2,7 @@ require 'rubygems'
 require 'rake'
 require 'rake/clean'
 
-CLOBBER.include('.yardoc', 'doc')
+CLOBBER.include('.yardoc', 'doc', 'pkg')
 
 begin
   require 'jeweler'
