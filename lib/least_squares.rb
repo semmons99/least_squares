@@ -9,7 +9,7 @@ module Math
   #   xs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   #   Math.mean(xs) #=> 5.5
   def Math.mean(xs)
-    xs.inject(:+) / xs.size.to_f
+    xs.inject{|s,n| s+n} / xs.size.to_f
   end
 
   ##
