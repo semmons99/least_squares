@@ -30,7 +30,13 @@ Results:
 
 Included methods are `#mean`, `#stdev`, `#pearson` and `#least_squares`.
 
+CHANGELOG
+---------
+
+- **May.05.10**: 0.1.0 release
+    - See {file:CHANGELOG} for changes
+
 Copyright
 ---------
 
-Copyright (c) 2010 Shane Emmons. See LICENSE for details.
+Copyright (c) 2010 Shane Emmons. See {file:LICENSE} for details.
