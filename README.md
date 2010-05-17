@@ -33,6 +33,9 @@ Included methods are `#mean`, `#stdev`, `#pearson` and `#least_squares`.
 CHANGELOG
 ---------
 
+- **May.05.17**: 0.1.1 release
+    - See {file:CHANGELOG} for changes
+
 - **May.05.10**: 0.1.0 release
     - See {file:CHANGELOG} for changes
 
