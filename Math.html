@@ -267,14 +267,14 @@ Least Squares Regression Line
       <pre class="lines">
 
 
+62
+63
 64
 65
-66
-67
-68</pre>
+66</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/least_squares.rb', line 64</span>
+      <pre class="code"><span class="info file"># File 'lib/least_squares.rb', line 62</span>
 
 <span class='kw'>def</span> <span class='const'>Math</span><span class='period'>.</span><span class='id least_squares'>least_squares</span><span class='lparen'>(</span><span class='id xs'>xs</span><span class='comma'>,</span> <span class='id ys'>ys</span><span class='rparen'>)</span>
   <span class='id b'>b</span> <span class='op'>=</span> <span class='const'>Math</span><span class='period'>.</span><span class='id pearson'>pearson</span><span class='lparen'>(</span><span class='id xs'>xs</span><span class='comma'>,</span><span class='id ys'>ys</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='const'>Math</span><span class='period'>.</span><span class='id stdev'>stdev</span><span class='lparen'>(</span><span class='id ys'>ys</span><span class='rparen'>)</span> <span class='op'>/</span> <span class='const'>Math</span><span class='period'>.</span><span class='id stdev'>stdev</span><span class='lparen'>(</span><span class='id xs'>xs</span><span class='rparen'>)</span><span class='rparen'>)</span>
@@ -472,21 +472,17 @@ Pearson&#8217;s Correlation Coefficient
 44
 45
 46
-47
-48
-49</pre>
+47</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/least_squares.rb', line 41</span>
 
 <span class='kw'>def</span> <span class='const'>Math</span><span class='period'>.</span><span class='id pearson'>pearson</span><span class='lparen'>(</span><span class='id xs'>xs</span><span class='comma'>,</span> <span class='id ys'>ys</span><span class='rparen'>)</span>
-  <span class='id numerator'>numerator</span> <span class='op'>=</span> <span class='int'>0</span>
   <span class='id xs_mean'>xs_mean</span> <span class='op'>=</span> <span class='const'>Math</span><span class='period'>.</span><span class='id mean'>mean</span><span class='lparen'>(</span><span class='id xs'>xs</span><span class='rparen'>)</span>
   <span class='id ys_mean'>ys_mean</span> <span class='op'>=</span> <span class='const'>Math</span><span class='period'>.</span><span class='id mean'>mean</span><span class='lparen'>(</span><span class='id ys'>ys</span><span class='rparen'>)</span>
-  <span class='lparen'>(</span><span class='int'>0</span><span class='op'>...</span><span class='id xs'>xs</span><span class='period'>.</span><span class='id size'>size</span><span class='rparen'>)</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id i'>i</span><span class='op'>|</span>
-    <span class='id numerator'>numerator</span> <span class='op'>+=</span> <span class='lparen'>(</span><span class='id xs'>xs</span><span class='lbracket'>[</span><span class='id i'>i</span><span class='rbracket'>]</span> <span class='op'>-</span> <span class='id xs_mean'>xs_mean</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='id ys'>ys</span><span class='lbracket'>[</span><span class='id i'>i</span><span class='rbracket'>]</span> <span class='op'>-</span> <span class='id ys_mean'>ys_mean</span><span class='rparen'>)</span>
-  <span class='kw'>end</span>
-  <span class='id numerator'>numerator</span> <span class='op'>/</span> <span class='lparen'>(</span><span class='const'>Math</span><span class='period'>.</span><span class='id sqrt'>sqrt</span><span class='lparen'>(</span><span class='id xs'>xs</span><span class='period'>.</span><span class='id inject'>inject</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id s'>s</span><span class='comma'>,</span><span class='id x'>x</span><span class='op'>|</span> <span class='id s'>s</span> <span class='op'>+</span> <span class='lparen'>(</span><span class='id x'>x</span> <span class='op'>-</span> <span class='id xs_mean'>xs_mean</span><span class='rparen'>)</span> <span class='op'>**</span> <span class='int'>2</span><span class='rbrace'>}</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='const'>Math</span><span class='period'>.</span><span class='id sqrt'>sqrt</span><span class='lparen'>(</span><span class='id ys'>ys</span><span class='period'>.</span><span class='id inject'>inject</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id s'>s</span><span class='comma'>,</span><span class='id y'>y</span><span class='op'>|</span> <span class='id s'>s</span> <span class='op'>+</span> <span class='lparen'>(</span><span class='id y'>y</span> <span class='op'>-</span> <span class='id ys_mean'>ys_mean</span><span class='rparen'>)</span> <span class='op'>**</span> <span class='int'>2</span><span class='rbrace'>}</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id numerator'>numerator</span>   <span class='op'>=</span> <span class='id xs'>xs</span><span class='period'>.</span><span class='id zip'>zip</span><span class='lparen'>(</span><span class='id ys'>ys</span><span class='rparen'>)</span><span class='period'>.</span><span class='id inject'>inject</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id s'>s</span><span class='comma'>,</span><span class='id n'>n</span><span class='op'>|</span> <span class='id s'>s</span> <span class='op'>+</span> <span class='lparen'>(</span><span class='lparen'>(</span><span class='id n'>n</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>-</span> <span class='id xs_mean'>xs_mean</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='id n'>n</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>-</span> <span class='id ys_mean'>ys_mean</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='rbrace'>}</span>
+  <span class='id denominator'>denominator</span> <span class='op'>=</span> <span class='const'>Math</span><span class='period'>.</span><span class='id sqrt'>sqrt</span><span class='lparen'>(</span><span class='id xs'>xs</span><span class='period'>.</span><span class='id inject'>inject</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id s'>s</span><span class='comma'>,</span><span class='id x'>x</span><span class='op'>|</span> <span class='id s'>s</span> <span class='op'>+</span> <span class='lparen'>(</span><span class='id x'>x</span> <span class='op'>-</span> <span class='id xs_mean'>xs_mean</span><span class='rparen'>)</span> <span class='op'>**</span> <span class='int'>2</span><span class='rbrace'>}</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='const'>Math</span><span class='period'>.</span><span class='id sqrt'>sqrt</span><span class='lparen'>(</span><span class='id ys'>ys</span><span class='period'>.</span><span class='id inject'>inject</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id s'>s</span><span class='comma'>,</span><span class='id y'>y</span><span class='op'>|</span> <span class='id s'>s</span> <span class='op'>+</span> <span class='lparen'>(</span><span class='id y'>y</span> <span class='op'>-</span> <span class='id ys_mean'>ys_mean</span><span class='rparen'>)</span> <span class='op'>**</span> <span class='int'>2</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id numerator'>numerator</span> <span class='op'>/</span> <span class='id denominator'>denominator</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -588,7 +584,7 @@ Standard Deviation
 </div>
     
     <div id="footer">
-  Generated on Wed May  5 11:02:33 2010 by 
+  Generated on Mon May 17 09:56:12 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.4 (ruby-1.9.1).
 </div>
