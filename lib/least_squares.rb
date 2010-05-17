@@ -39,13 +39,11 @@ module Math
   #   ys = [9, 1, 0, 5, 4, 7, 7, 0, 9, 3]
   #   Math.pearson(xs,ys) #=> 0.0581327470763432
   def Math.pearson(xs, ys)
-    numerator = 0
     xs_mean = Math.mean(xs)
     ys_mean = Math.mean(ys)
-    (0...xs.size).each do |i|
-      numerator += (xs[i] - xs_mean) * (ys[i] - ys_mean)
-    end
-    numerator / (Math.sqrt(xs.inject(0){|s,x| s + (x - xs_mean) ** 2}) * Math.sqrt(ys.inject(0){|s,y| s + (y - ys_mean) ** 2}))
+    numerator   = xs.zip(ys).inject(0){|s,n| s + ((n[0] - xs_mean) * (n[1] - ys_mean))}
+    denominator = Math.sqrt(xs.inject(0){|s,x| s + (x - xs_mean) ** 2}) * Math.sqrt(ys.inject(0){|s,y| s + (y - ys_mean) ** 2})
+    numerator / denominator
   end
 
   ##
