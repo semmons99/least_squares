@@ -5,24 +5,27 @@
 
 Gem::Specification.new do |s|
   s.name = %q{least_squares}
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Shane Emmons"]
-  s.date = %q{2010-05-05}
+  s.date = %q{2010-05-17}
   s.description = %q{This gem adds methods to the Math module to aid in calculating the Least Squares Regression Line given two arrays.}
   s.email = %q{semmons99@gmail.com}
   s.extra_rdoc_files = [
-    "LICENSE",
+    "CHANGELOG",
+     "LICENSE",
      "README.md"
   ]
   s.files = [
-    ".document",
-     ".gitignore",
+    ".gitignore",
+     ".yardopts",
+     "CHANGELOG",
      "LICENSE",
      "README.md",
      "Rakefile",
      "VERSION",
+     "least_squares.gemspec",
      "lib/least_squares.rb",
      "spec/least_squares_spec.rb",
      "spec/spec.opts",
@@ -31,7 +34,7 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/semmons99/least_squares}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.6}
+  s.rubygems_version = %q{1.3.7}
   s.summary = %q{Calulate the Least Squares Regression Line}
   s.test_files = [
     "spec/least_squares_spec.rb",
@@ -42,7 +45,7 @@ Gem::Specification.new do |s|
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
-    if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
+    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_development_dependency(%q<rspec>, [">= 1.3.0"])
       s.add_development_dependency(%q<yard>, [">= 0.5.4"])
     else
