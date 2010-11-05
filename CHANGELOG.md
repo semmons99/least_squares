@@ -1,3 +1,8 @@
+Least Squares 1.0.0
+===================
+ - Removed Jeweler dependency
+ - Updated to RSpec 2.0.0
+
 Least Squares 0.1.1
 ===================
 
