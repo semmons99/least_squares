@@ -1,42 +1,48 @@
 require 'rubygems'
-require 'rake'
 require 'rake/clean'
 
-CLOBBER.include('.yardoc', 'doc', 'pkg')
+CLOBBER.include('doc', '.yardoc')
+
+def gemspec
+  @gemspec ||= begin
+    file = File.expand_path("../least_squares.gemspec", __FILE__)
+    eval(File.read(file), binding, file)
+  end
+end
 
 begin
-  require 'jeweler'
-  Jeweler::Tasks.new do |gem|
-    gem.name = "least_squares"
-    gem.summary = %Q{Calulate the Least Squares Regression Line}
-    gem.description = %Q{This gem adds methods to the Math module to aid in calculating the Least Squares Regression Line given two arrays.}
-    gem.email = "semmons99@gmail.com"
-    gem.homepage = "http://github.com/semmons99/least_squares"
-    gem.authors = ["Shane Emmons"]
-    gem.add_development_dependency "rspec", ">= 2.0.0"
-    gem.add_development_dependency "yard", ">= 0.5.4"
-  end
-  Jeweler::GemcutterTasks.new
+  require 'rspec/core/rake_task'
+  RSpec::Core::RakeTask.new
 rescue LoadError
-  puts "Jeweler (or a dependency) not available. Install it with: gem install jeweler"
+  task(:spec){abort "`gem install rspec` to run specs"}
 end
-
-require 'rspec/core/rake_task'
-RSpec::Core::RakeTask.new
-
-RSpec::Core::RakeTask.new(:rcov) do |spec|
-  spec.rcov = true
-end
-
-task :spec => :check_dependencies
-
 task :default => :spec
 
 begin
   require 'yard'
-  YARD::Rake::YardocTask.new
-rescue LoadError
-  task :yardoc do
-    abort "YARD is not available. In order to run yardoc, you must: sudo gem install yard"
+  YARD::Rake::YardocTask.new do |t|
+    t.options << "--files" << "CHANGELOG,LICENSE"
   end
+rescue LoadError
+  task(:yardoc){abort "`gem install yard` to generate documentation"}
+end
+
+begin
+  require 'rake/gempackagetask'
+  Rake::GemPackageTask.new(gemspec) do |pkg|
+    pkg.gem_spec = gemspec
+  end
+  task :gem => :gemspec
+rescue LoadError
+  task(:gem){abort "`gem install rake` to package gems"}
+end
+
+desc "Install the gem locally"
+task :install => :gem do
+  sh "gem install pkg/#{gemspec.full_name}.gem"
+end
+
+desc "Validate the gemspec"
+task :gemspec do
+  gemspec.validate
 end
