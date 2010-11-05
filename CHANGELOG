@@ -1,7 +1,0 @@
-2010-05-17  Shane Emmons <semmons99@gmail.com>
-
-  * Use #zip in place of #each in #pearson
-
-2010-05-05  Shane Emmons <semmons99@gmail.com>
-
-  * initial release
