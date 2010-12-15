@@ -15,14 +15,14 @@ describe "LeastSquares" do
 
   describe '#stdev' do
     specify 'returns the standard deviation of an array of numbers' do
-      Math.stdev(@xs).should be_close(3.0277, 0.0001)
-      Math.stdev(@ys).should be_close(3.4721, 0.0001)
+      Math.stdev(@xs).should be_within(0.0001).of(3.0277)
+      Math.stdev(@ys).should be_within(0.0001).of(3.4721)
     end
   end
 
   describe '#pearson' do
     specify 'returns the Pearson Correlation Coefficient of two arrays of numbers' do
-      Math.pearson(@xs,@ys).should be_close(0.0581, 0.0001)
+      Math.pearson(@xs,@ys).should be_within(0.0001).of(0.0581)
     end
   end
 
@@ -35,7 +35,7 @@ describe "LeastSquares" do
       rs = [4.2, 4.2667, 4.3333, 4.4, 4.4667, 4.5333, 4.6, 4.6667, 4.7333, 4.8]
       ls = Math.least_squares(@xs,@ys)
       (1..10).map{|i| ls.call(i)}.each_with_index do |x,i|
-        x.should be_close(rs[i], 0.0001)
+        x.should be_within(0.0001).of(rs[i])
       end
     end
   end
