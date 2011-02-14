@@ -13,7 +13,11 @@ Gem::Specification.new do |s|
   s.add_development_dependency "rspec", ">= 2.0.0"
   s.add_development_dependency "yard"
 
-  s.files        = Dir.glob("lib/**/*") + %w(CHANGELOG.md LICENSE README.md)
+  s.files =  Dir.glob("lib/**/*")
+  s.files += Dir.glob("spec/**/*")
+  s.files += %w(CHANGELOG.md LICENSE README.md)
+  s.files += %w(Rakefile .gemtest least_squares.gemspec)
+
   s.require_path = "lib"
 end
 
