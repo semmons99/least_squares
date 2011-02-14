@@ -1,3 +1,7 @@
+Least Squares 1.0.1
+===================
+ - Update for rubygems-test.gem compatibility
+
 Least Squares 1.0.0
 ===================
  - Removed Jeweler dependency
